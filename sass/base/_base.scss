@@ -1,0 +1,73 @@
+@use '../abstracts' as *;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: $space-xl; // keep anchored headings clear of the top edge
+  }
+
+  body {
+    min-height: 100vh;
+    font-family: $font-body;
+    font-size: $step-0;
+    line-height: $line-height-body;
+    color: $text;
+    background: $surface;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: $font-ui;
+    line-height: $line-height-heading;
+    text-wrap: balance;
+  }
+
+  h1 { font-size: $step-4; }
+  h2 { font-size: $step-2; }
+  h3 { font-size: $step-1; }
+
+  p,
+  li {
+    max-width: $measure;
+  }
+
+  a {
+    color: $link;
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.2em;
+
+    &:hover {
+      color: $link-hover;
+      text-decoration-thickness: 0.14em;
+    }
+  }
+
+  // Visible focus on every interactive element (WCAG 2.4.7). The double ring
+  // (light inner, dark outer) stays visible on both light and dark surfaces.
+  :focus-visible {
+    outline: 3px solid $color-ink;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px $color-focus;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: $color-focus;
+    color: $color-ink;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

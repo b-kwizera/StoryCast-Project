@@ -1,0 +1,11 @@
+// Viewport breakpoints (mobile-first, min-width). Component-level responsiveness
+// uses container queries instead; see components/_media-card.scss.
+$bp-sm: 36rem;  // 576px
+$bp-md: 48rem;  // 768px
+$bp-lg: 64rem;  // 1024px
+
+@mixin from($bp) {
+  @media (min-width: $bp) {
+    @content;
+  }
+}

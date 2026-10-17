@@ -1,0 +1,3 @@
+// Declares the cascade-layer order once. Later layers beat earlier ones
+// regardless of selector specificity, which keeps the CSS predictable.
+@layer reset, base, layout, components, pages, utilities;

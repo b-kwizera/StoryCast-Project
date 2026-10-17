@@ -1,0 +1,23 @@
+// Colour tokens. Every text/background pairing used in the site is listed in
+// the contrast table in the README and meets WCAG 2.1 AA (4.5:1 for text,
+// 3:1 for UI components).
+$color-ink: #14213d;          // body text, dark surfaces
+$color-cream: #fdf8f0;        // page background
+$color-sand: #f3e8d6;         // raised / alternate surfaces
+$color-muted: #4a5568;        // secondary text
+$color-accent: #a33a16;       // links, buttons, highlights
+$color-accent-dark: #7d2b0e;  // hover state for accent
+$color-teal: #0f5c63;         // secondary accent
+$color-focus: #ffbf47;        // focus ring (3:1+ against both ink and cream)
+$color-border: #6b7280;       // UI borders (4.5:1 on cream)
+$color-white: #ffffff;
+$color-footer-text: #d9e2f2;
+
+// Semantic aliases: components use these, not the raw palette.
+$text: $color-ink;
+$text-muted: $color-muted;
+$surface: $color-cream;
+$surface-alt: $color-sand;
+$surface-inverse: $color-ink;
+$link: $color-accent;
+$link-hover: $color-accent-dark;
