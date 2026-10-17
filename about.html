@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About &amp; Access | StoryCast</title>
+  <meta name="description" content="The mission behind StoryCast, the accessibility features built into every page, and how to take part.">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div class="page">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="site-header__inner container">
+      <a class="site-header__brand" href="index.html">StoryCast</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul class="site-nav__list" role="list">
+          <li><a class="site-nav__link" href="index.html">Home</a></li>
+          <li><a class="site-nav__link" href="story/before-the-market-wakes.html">Stories</a></li>
+          <li><a class="site-nav__link" href="about.html" aria-current="page">About &amp; Access</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <section class="about-intro" aria-labelledby="about-title">
+        <h1 class="about-intro__title" id="about-title">About StoryCast</h1>
+        <p class="about-intro__lead">StoryCast exists to share ordinary people's stories in a way that anyone can enjoy, whether they listen, watch, read, or use assistive technology.</p>
+      </section>
+    </div>
+
+    <section class="section section--alt" aria-labelledby="mission-title">
+      <div class="container">
+        <h2 class="section__title" id="mission-title">Our mission</h2>
+        <p>Too many media sites treat captions and transcripts as an afterthought. We build them in from the first line of HTML. A story is not finished until it can be heard, seen, and read.</p>
+      </div>
+    </section>
+
+    <section class="section" id="accessibility" aria-labelledby="access-title">
+      <div class="container">
+        <h2 class="section__title" id="access-title">Accessibility features</h2>
+        <ul class="feature-grid" role="list">
+          <li class="feature">
+            <h3 class="feature__title">Captions and transcripts</h3>
+            <p>Every audio and video story has WebVTT captions and a transcript on the page. Click a timestamp to jump to that moment.</p>
+          </li>
+          <li class="feature">
+            <h3 class="feature__title">Colour contrast</h3>
+            <p>Text and controls meet WCAG 2.1 AA contrast. Meaning is never carried by colour alone.</p>
+          </li>
+          <li class="feature">
+            <h3 class="feature__title">Keyboard and focus</h3>
+            <p>A skip link, a logical tab order, and a high-visibility focus ring on every link and button.</p>
+          </li>
+          <li class="feature">
+            <h3 class="feature__title">Screen readers</h3>
+            <p>Landmarks, one <code>h1</code> per page, labelled regions, and <code>aria-current</code> for the current page and active transcript line.</p>
+          </li>
+          <li class="feature">
+            <h3 class="feature__title">Flexible layout</h3>
+            <p>The layout adapts from phone to desktop and survives zooming to 200%. Motion is reduced if your system asks for it.</p>
+          </li>
+          <li class="feature">
+            <h3 class="feature__title">Plain language</h3>
+            <p>Short sentences and clear headings, so stories and instructions are easy to follow.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="engage-title">
+      <div class="container">
+        <h2 class="section__title" id="engage-title">How to engage with StoryCast</h2>
+        <ol class="steps">
+          <li class="steps__item"><strong>Pick a story</strong> from the <a href="index.html#stories">home page</a>.</li>
+          <li class="steps__item"><strong>Choose how to take it in:</strong> play the audio or video, turn captions on or off in the player, or just read the transcript.</li>
+          <li class="steps__item"><strong>Jump around.</strong> Use the timestamp buttons in the transcript to replay any line.</li>
+          <li class="steps__item"><strong>Take the text with you.</strong> Each transcript can be downloaded as a plain-text file.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="limits-title">
+      <div class="container">
+        <div class="limits">
+          <h2 id="limits-title" class="section__title">Known limitations</h2>
+          <p>The narration in these demo stories is synthetic speech and the video uses abstract visuals, so there are no on-screen events to describe. A story with real footage would also need audio description. If something on the site blocks you, tell us and we will fix it.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p>&copy; 2026 StoryCast. Every story has captions and a transcript.</p>
+      <p><a href="about.html#accessibility">Accessibility features</a></p>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
