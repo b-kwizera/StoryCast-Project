@@ -1,0 +1,13 @@
+{
+  "name": "storycast",
+  "version": "1.0.0",
+  "description": "StoryCast: an accessible media feature microsite (HTML, Sass, vanilla JS)",
+  "private": true,
+  "scripts": {
+    "build": "sass --no-source-map sass/main.scss css/main.css",
+    "watch": "sass --no-source-map --watch sass/main.scss css/main.css"
+  },
+  "devDependencies": {
+    "sass": "^1.83.4"
+  }
+}
