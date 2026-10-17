@@ -1,0 +1,74 @@
+@use '../abstracts' as *;
+
+@layer components {
+  .hero {
+    padding-block: $space-2xl;
+    background: linear-gradient(135deg, $color-ink, #1f3358);
+    color: $color-cream;
+
+    &__inner {
+      display: grid;
+      gap: $space-l;
+      align-items: center;
+
+      @include from($bp-md) {
+        grid-template-columns: 3fr 2fr;
+      }
+    }
+
+    &__eyebrow {
+      font-family: $font-ui;
+      font-size: $step--1;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: $color-focus;
+    }
+
+    &__title {
+      margin-block: $space-2xs $space-s;
+      color: $color-white;
+    }
+
+    &__lead {
+      margin-block-end: $space-m;
+      font-size: $step-1;
+    }
+
+    &__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $space-s;
+    }
+
+    // Decorative sound-wave pattern; hidden from assistive tech in the markup.
+    &__art {
+      aspect-ratio: 1;
+      max-width: 22rem;
+      width: 100%;
+      justify-self: center;
+      border-radius: $radius-lg;
+      background:
+        repeating-linear-gradient(90deg, $color-focus 0 0.5rem, transparent 0.5rem 1.25rem),
+        $color-accent;
+      mask-image: linear-gradient(0deg, transparent, #000 35%, #000 65%, transparent);
+      opacity: 0.9;
+    }
+
+    // Ghost button must stay readable on the dark hero.
+    .button--outline {
+      color: $color-white;
+      border-color: $color-white;
+
+      &:hover {
+        background: $color-white;
+        color: $color-ink;
+      }
+    }
+
+    :focus-visible {
+      outline-color: $color-white;
+      box-shadow: 0 0 0 6px $color-ink;
+    }
+  }
+}

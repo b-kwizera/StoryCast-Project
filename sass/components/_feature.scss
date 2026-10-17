@@ -1,0 +1,49 @@
+@use '../abstracts' as *;
+
+@layer components {
+  // Auto-fitting Grid: as many 15rem+ columns as fit, no media queries needed.
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    gap: $space-m;
+    padding: 0;
+  }
+
+  .feature {
+    max-width: none;
+    padding: $space-m;
+    background: $color-white;
+    border: $border-width solid $color-border;
+    border-radius: $radius-lg;
+
+    &__title {
+      margin-block-end: $space-2xs;
+      font-size: $step-1;
+    }
+
+    &__icon {
+      display: inline-grid;
+      place-items: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      margin-block-end: $space-xs;
+      font-family: $font-ui;
+      font-weight: 800;
+      color: $color-white;
+      background: $color-teal;
+      border-radius: 50%;
+    }
+  }
+
+  .steps {
+    display: grid;
+    gap: $space-s;
+    padding-inline-start: $space-m;
+
+    &__item::marker {
+      font-family: $font-ui;
+      font-weight: 800;
+      color: $color-accent;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+@use '../abstracts' as *;
+
+@layer pages {
+  .story {
+    display: grid;
+    gap: $space-xl;
+    padding-block: $space-l $space-2xl;
+
+    // Main column + sidebar on wide screens; single column otherwise.
+    @include from($bp-lg) {
+      grid-template-columns: minmax(0, 2fr) minmax(16rem, 1fr);
+      align-items: start;
+    }
+
+    &__main {
+      display: grid;
+      gap: $space-l;
+    }
+
+    &__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $space-2xs;
+      margin-block-start: $space-xs;
+      padding: 0;
+      font-family: $font-ui;
+      font-size: $step--1;
+    }
+
+    &__lead {
+      margin-block-start: $space-s;
+      font-size: $step-1;
+      color: $text-muted;
+    }
+
+    &__aside {
+      position: sticky;
+      inset-block-start: $space-m;
+    }
+  }
+
+  .breadcrumb {
+    padding-block: $space-s 0;
+    font-family: $font-ui;
+    font-size: $step--1;
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $space-2xs;
+      padding: 0;
+    }
+
+    &__item:not(:last-child)::after {
+      content: '/';
+      margin-inline-start: $space-2xs;
+      color: $text-muted;
+    }
+  }
+}

@@ -1,0 +1,79 @@
+@use '../abstracts' as *;
+
+@layer layout {
+  .container {
+    width: min(100% - 2 * $gutter, $container-width);
+    margin-inline: auto;
+  }
+
+  // Page shell: Grid keeps the footer at the bottom on short pages.
+  .page {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+
+  .section {
+    padding-block: $space-xl;
+
+    &--alt {
+      background: $surface-alt;
+    }
+
+    &__title {
+      margin-block-end: $space-m;
+    }
+
+    &__intro {
+      margin-block-end: $space-l;
+      color: $text-muted;
+    }
+  }
+
+  .site-header {
+    background: $surface-inverse;
+    color: $color-cream;
+
+    &__inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: $space-xs $space-m;
+      padding-block: $space-s;
+    }
+
+    &__brand {
+      font-family: $font-ui;
+      font-size: $step-1;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      color: $color-white;
+      text-decoration: none;
+
+      &:hover {
+        color: $color-white;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .site-footer {
+    background: $surface-inverse;
+    color: $color-footer-text;
+    padding-block: $space-l;
+    font-family: $font-ui;
+    font-size: $step--1;
+
+    &__inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: $space-s $space-l;
+    }
+
+    a {
+      color: $color-white;
+    }
+  }
+}

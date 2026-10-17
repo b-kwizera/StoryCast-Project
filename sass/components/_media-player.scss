@@ -1,0 +1,40 @@
+@use '../abstracts' as *;
+
+@layer components {
+  .media-player {
+    margin: 0;
+    background: $surface-inverse;
+    border-radius: $radius-lg;
+    overflow: hidden;
+
+    &__video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+    }
+
+    // Audio stories show artwork above the native controls.
+    &__art {
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    &__audio {
+      width: 100%;
+      display: block;
+      background: $color-sand;
+    }
+
+    &__caption {
+      padding: $space-s $space-m;
+      font-family: $font-ui;
+      font-size: $step--1;
+      color: $color-footer-text;
+
+      strong {
+        color: $color-white;
+      }
+    }
+  }
+}

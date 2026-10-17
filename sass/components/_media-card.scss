@@ -1,0 +1,152 @@
+@use '../abstracts' as *;
+
+@layer components {
+  // The list item is the *container*: the card inside responds to the width of
+  // its slot, not the viewport. In a narrow column it stacks; once its slot is
+  // wide enough, the thumbnail moves beside the text.
+  .story-list {
+    display: grid;
+    // auto-fit lets Grid decide the number of columns from available space.
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    gap: $space-m;
+    padding: 0;
+
+    &__item {
+      max-width: none; // override the reading-measure cap set on li in base
+      container-type: inline-size;
+      container-name: story-card;
+    }
+
+    // First story spans every column, so its slot is wide and the card switches to its horizontal layout.
+    &--featured {
+      @include from($bp-md) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    &--featured &__item:first-child {
+      grid-column: 1 / -1;
+    }
+
+    // Used in the single-column related-stories sidebar.
+    &--stacked {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .media-card {
+    position: relative;
+    display: grid;
+    height: 100%;
+    background: $color-white;
+    border: $border-width solid $color-border;
+    border-radius: $radius-lg;
+    overflow: hidden;
+
+    &__thumb {
+      aspect-ratio: 16 / 9;
+      background: $color-sand;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &__body {
+      display: flex;
+      flex-direction: column;
+      gap: $space-2xs;
+      padding: $space-s;
+    }
+
+    &__title {
+      font-size: $step-1;
+
+      a {
+        color: $color-ink;
+        text-decoration: none;
+
+        // Stretch the link over the whole card so the entire card is clickable.
+        &::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+        }
+
+        &:hover {
+          color: $color-accent;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &__summary {
+      color: $text-muted;
+    }
+
+    &__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $space-2xs;
+      margin-block-start: auto;
+      padding: 0;
+      font-family: $font-ui;
+      font-size: $step--1;
+    }
+
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.1rem $space-xs;
+    font-weight: 700;
+    color: $color-ink;
+    background: $surface-alt;
+    border: 1px solid $color-border;
+    border-radius: 999px;
+
+    &--video {
+      color: $color-white;
+      background: $color-teal;
+      border-color: $color-teal;
+    }
+
+    &--audio {
+      color: $color-white;
+      background: $color-accent;
+      border-color: $color-accent;
+    }
+  }
+
+  @container story-card (min-width: 30rem) {
+    .media-card {
+      grid-template-columns: minmax(10rem, 40%) 1fr;
+
+      // Thumbnail height now follows the text column instead of the image ratio.
+      &__thumb {
+        position: relative;
+        aspect-ratio: auto;
+        min-height: 11rem;
+
+        img {
+          position: absolute;
+          inset: 0;
+        }
+      }
+
+      &__body {
+        padding: $space-m;
+      }
+    }
+  }
+
+  @container story-card (min-width: 44rem) {
+    .media-card {
+      &__title {
+        font-size: $step-2;
+      }
+    }
+  }
+}

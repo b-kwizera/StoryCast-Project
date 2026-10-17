@@ -1,0 +1,64 @@
+@use '../abstracts' as *;
+
+@layer components {
+  .transcript {
+    &__header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: $space-2xs $space-m;
+      margin-block-end: $space-s;
+    }
+
+    &__title {
+      font-size: $step-2;
+    }
+
+    &__download {
+      font-family: $font-ui;
+      font-size: $step--1;
+      font-weight: 600;
+    }
+
+    &__list {
+      display: grid;
+      gap: $space-3xs;
+      padding: 0;
+    }
+
+    &__cue {
+      display: grid;
+      grid-template-columns: 3.5rem 1fr;
+      align-items: baseline;
+      gap: $space-xs;
+      padding: $space-2xs $space-xs;
+      border-inline-start: 4px solid transparent;
+      border-radius: $radius;
+
+      // Active line is shown with a bar and background, not colour alone.
+      &[aria-current='true'] {
+        background: $surface-alt;
+        border-inline-start-color: $color-accent;
+        font-weight: 700;
+      }
+    }
+
+    &__time {
+      padding: $space-3xs $space-2xs;
+      font-family: $font-ui;
+      font-size: $step--1;
+      font-variant-numeric: tabular-nums;
+      color: $color-accent;
+      background: transparent;
+      border: 1px solid $color-accent;
+      border-radius: $radius;
+      cursor: pointer;
+
+      &:hover {
+        color: $color-white;
+        background: $color-accent;
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+@use '../abstracts' as *;
+
+@layer components {
+  .site-nav {
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $space-3xs $space-s;
+      padding: 0;
+    }
+
+    &__link {
+      display: inline-block;
+      padding: $space-2xs $space-xs;
+      font-family: $font-ui;
+      font-weight: 600;
+      color: $color-cream;
+      text-decoration: none;
+      border-block-end: 3px solid transparent;
+
+      &:hover {
+        color: $color-white;
+        border-block-end-color: $color-cream;
+      }
+
+      // Current page is conveyed by aria-current in the markup, not by colour alone.
+      &[aria-current='page'] {
+        color: $color-white;
+        border-block-end-color: $color-focus;
+      }
+
+      // Light focus ring: the default dark outline is invisible on the dark header.
+      &:focus-visible {
+        outline-color: $color-white;
+        box-shadow: 0 0 0 6px $color-ink;
+      }
+    }
+  }
+}

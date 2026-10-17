@@ -1,0 +1,30 @@
+@use '../abstracts' as *;
+
+@layer components {
+  .button {
+    display: inline-block;
+    padding: $space-xs $space-m;
+    font-family: $font-ui;
+    font-weight: 700;
+    text-decoration: none;
+    color: $color-white;
+    background: $color-accent;
+    border: $border-width solid $color-accent;
+    border-radius: $radius;
+
+    &:hover {
+      color: $color-white;
+      background: $color-accent-dark;
+      border-color: $color-accent-dark;
+    }
+
+    &--outline {
+      color: $color-accent;
+      background: transparent;
+
+      &:hover {
+        color: $color-white;
+      }
+    }
+  }
+}

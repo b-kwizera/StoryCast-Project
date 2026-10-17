@@ -1,0 +1,22 @@
+@use '../abstracts' as *;
+
+@layer components {
+  // First focusable element on every page; lets keyboard users bypass the nav (WCAG 2.4.1).
+  .skip-link {
+    position: absolute;
+    inset-block-start: $space-2xs;
+    inset-inline-start: $space-2xs;
+    z-index: 10;
+    padding: $space-2xs $space-s;
+    font-family: $font-ui;
+    font-weight: 700;
+    background: $color-focus;
+    color: $color-ink;
+    border-radius: $radius;
+    transform: translateY(-200%);
+
+    &:focus {
+      transform: translateY(0);
+    }
+  }
+}
